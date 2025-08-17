@@ -24,3 +24,43 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+input[type="text"] {
+  /* 枠線のスタイルを設定 */
+  border: 2px solid #3498db; /* 線の太さ、種類、色 */
+
+  /* ユーザーが入力中に表示される枠線（アウトライン）を消す */
+  outline: none;
+
+  /* 角を丸くする */
+  border-radius: 5px;
+
+  /* ボックスにフォーカスしたときのスタイル */
+  /* フォーカス時の枠線の色を濃くする */
+  &:focus {
+    border-color: #2980b9;
+  }
+}
+
+/* 通常のボタンのスタイル */
+button {
+  background-color: #2ecc71;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* ホバー時のスタイル */
+button:hover {
+  background-color: #27ae60;
+}
+
+/* disabled 属性がついているときのスタイル */
+/* このセレクタは、通常のボタンのスタイルよりも詳細度が高いので、
+   disabled 属性がついているときは、こちらのスタイルが優先されます。 */
+button[disabled] {
+  background-color: #bdc3c7; /* 薄い灰色 */
+  cursor: not-allowed;
+}
