@@ -19,6 +19,6 @@ export async function postAction(prev: State, formData: FormData): Promise<State
     };
   }
 
-  // 成功した場合はリダイレクトする
-  redirect(`/thanks?name=${encodeURIComponent(name.toString())}`);
+ // 成功した場合はリダイレクトする
+  redirect("/thanks");
 }
