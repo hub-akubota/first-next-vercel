@@ -1,14 +1,17 @@
 import Link from "next/link";
-import { cookies } from "next/headers";
 
-export default function Page() {
-  // Cookieから'userName'を取得
-  const userName = cookies().get('userName')?.value;
+export default function Page({
+    searchParams,
+  }: {
+    searchParams: { [key: string]: string | string[] | undefined };
+  }) {
+    const name = searchParams.name;
 
-  return (
-    <div>
-      <h1>{userName ? `${userName}さん、回答ありがとうございました` : '投稿ありがとうございます。'}</h1>
-      <Link href="/">フォームに戻る</Link>
-    </div>
-  );
-}
+    return (
+      <div>
+        {/* 名前があれば表示、なければ一般的なメッセージを表示 */}
+        <h1>{name ? `${name}さん、回答ありがとうございました` : '投稿ありがとうございます。'}</h1>
+        <Link href="/">フォームに戻る</Link>
+      </div>
+    );
+  }
